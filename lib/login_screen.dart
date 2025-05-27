@@ -20,11 +20,11 @@ class _LoginScreenState extends State<LoginScreen> {
     final String enteredUsername = _usernameController.text;
     final String enteredPassword = _passwordController.text;
 
-    print('Eingegebener Benutzername: $enteredUsername');
-    print('Eingegebenes Passwort: $enteredPassword');
+    debugPrint('Eingegebener Benutzername: $enteredUsername');
+    debugPrint('Eingegebenes Passwort: $enteredPassword');
 
     if (enteredUsername == _username && enteredPassword == _password) {
-      print('Login erfolgreich!');
+      debugPrint('Login erfolgreich!');
 
       Navigator.pushReplacement(
         context,
@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       );
     } else {
-      print('Login fehlgeschlagen! Ungültige Anmeldeinformationen.');
+      debugPrint('Login fehlgeschlagen! Ungültige Anmeldeinformationen.');
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

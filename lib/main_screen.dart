@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:n_s_v_d/counter_box.dart';
+// import 'package:n_s_v_d/counter_box.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -9,11 +9,11 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int box1 = 0;
-  int box2 = 0;
-  int box3 = 0;
+  // int box1 = 0;
+  // int box2 = 0;
+  // int box3 = 0;
 
-  int get _totalCount => box1 + box2 + box3;
+  // int get _totalCount => box1 + box2 + box3;
 
   @override
   Widget build(BuildContext context) {
@@ -24,31 +24,51 @@ class _MainScreenState extends State<MainScreen> {
           child: Column(
             spacing: 16,
             children: [
-              CounterBox(
-                color: Colors.blue,
-                onChanged: (c) {
-                  setState(() {
-                    box1 = c;
+              OutlinedButton(
+                onPressed: () async {
+                  Future.delayed(Duration(milliseconds: 500)).then((_) {
+                    debugPrint("A fertig!");
                   });
-                },
-              ),
-              CounterBox(
-                color: Colors.indigo,
-                onChanged: (c) {
-                  setState(() {
-                    box2 = c;
+                  Future.delayed(Duration(milliseconds: 100)).then((_) {
+                    debugPrint("B fertig!");
                   });
-                },
-              ),
-              CounterBox(
-                color: Colors.purpleAccent,
-                onChanged: (c) {
-                  setState(() {
-                    box3;
+                  await Future.delayed(Duration(milliseconds: 700)).then((_) {
+                    debugPrint("C fertig!");
                   });
+                  Future.delayed(Duration(milliseconds: 50)).then((_) {
+                    debugPrint("D fertig!");
+                  });
+
+                  debugPrint("Fertig!");
                 },
+                child: Text("Experiment"),
               ),
-              Text("Summe aller Längen: $_totalCount"),
+
+              // CounterBox(
+              //   color: Colors.blue,
+              //   onChanged: (c) {
+              //     setState(() {
+              //       box1 = c;
+              //     });
+              //   },
+              // ),
+              // CounterBox(
+              //   color: Colors.indigo,
+              //   onChanged: (c) {
+              //     setState(() {
+              //       box2 = c;
+              //     });
+              //   },
+              // ),
+              // CounterBox(
+              //   color: Colors.purpleAccent,
+              //   onChanged: (c) {
+              //     setState(() {
+              //       box3;
+              //     });
+              //   },
+              // ),
+              // Text("Summe aller Längen: $_totalCount"),
             ],
           ),
         ),
