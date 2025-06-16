@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-// import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:n_s_v_d/cocktail.dart';
 
@@ -9,11 +8,6 @@ class CocktailService {
 
   Future<Cocktail> getRandomCocktail() async {
     final response = await http.get(Uri.parse(baseURL));
-
-    // if (kDebugMode) {
-    //   debugPrint('Response Status Code: ${response.statusCode}');
-    //   debugPrint('Response Body: ${response.body}');
-    // }
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);

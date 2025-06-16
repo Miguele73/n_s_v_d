@@ -4,8 +4,10 @@ class Cocktail {
   String instructions;
   String ingridients;
   String glassType;
+  String measures;
 
   Cocktail({
+    required this.measures,
     required this.ingridients,
     required this.glassType,
     required this.name,
@@ -14,16 +16,32 @@ class Cocktail {
   });
 
   factory Cocktail.fromJson(Map<String, dynamic> json) {
+    List<String> ingredientsAndMeasures = [];
+
+    for (int i = 1; i <= 15; i++) {
+      final ingredient = json['strIngredient$i'] as String?;
+      final measure = json['strMeasure$i'] as String?;
+
+      if (ingredient != null && ingredient.isNotEmpty) {
+        if (measure != null && measure.isNotEmpty) {
+          ingredientsAndMeasures.add('${measure.trim()} ${ingredient.trim()}');
+        } else {
+          ingredientsAndMeasures.add(ingredient.trim());
+        }
+      }
+    }
+
+    String cleanedIngredients = ingredientsAndMeasures
+        .where((s) => s.isNotEmpty)
+        .join(', ');
+
     return Cocktail(
       name: json['strDrink'] as String,
       imageURL: json['strDrinkThumb'] as String,
       instructions: json['strInstructionsDE'] as String,
       glassType: json['strGlass'] as String,
-      ingridients:
-          '${json['strIngredient1']}, ${json['strIngredient2']}, ${json['strIngredient3']}, ${json['strIngredient4']}, ${json['strIngredient5']}, ${json['strIngredient6']}, ${json['strIngredient7']}, ${json['strIngredient8']}, ${json['strIngredient9']}, ${json['strIngredient10']}'
-              .replaceAll('null', '')
-              .replaceAll(RegExp(r',\s*$'), '')
-              .replaceAll(RegExp(r',\s*,\s*'), ', '),
+      ingridients: cleanedIngredients,
+      measures: '',
     );
   }
 }
