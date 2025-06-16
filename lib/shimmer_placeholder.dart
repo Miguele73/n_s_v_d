@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ShimmerPlaceholder extends StatefulWidget {
-  const ShimmerPlaceholder({Key? key}) : super(key: key);
+  const ShimmerPlaceholder({super.key});
 
   @override
   _ShimmerPlaceholderState createState() => _ShimmerPlaceholderState();
