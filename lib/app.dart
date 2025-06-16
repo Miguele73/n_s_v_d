@@ -76,14 +76,11 @@ class _AppState extends State<App> {
                               style: const TextStyle(
                                 fontSize: 28,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.deepOrangeAccent,
-                                decoration: TextDecoration.underline,
-                                decorationColor: Colors.deepOrangeAccent,
-                                decorationThickness: 2,
+                                color: Color.fromARGB(255, 35, 41, 224),
                               ),
                               textAlign: TextAlign.center,
                             ),
-                            const SizedBox(height: 16),
+                            const SizedBox(height: 32),
 
                             ClipRRect(
                               borderRadius: BorderRadius.circular(10),
@@ -117,7 +114,7 @@ class _AppState extends State<App> {
                                 },
                               ),
                             ),
-                            const SizedBox(height: 16),
+                            const SizedBox(height: 32),
 
                             Container(
                               padding: const EdgeInsets.all(8),
@@ -133,10 +130,10 @@ class _AppState extends State<App> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 8),
+                            const SizedBox(height: 16),
 
                             Container(
-                              padding: const EdgeInsets.all(8),
+                              padding: const EdgeInsets.all(16),
                               decoration: BoxDecoration(
                                 color: Colors.limeAccent,
                                 borderRadius: BorderRadius.circular(8),
@@ -147,7 +144,7 @@ class _AppState extends State<App> {
                                 textAlign: TextAlign.center,
                               ),
                             ),
-                            const SizedBox(height: 8),
+                            const SizedBox(height: 32),
 
                             Container(
                               padding: const EdgeInsets.all(8),
