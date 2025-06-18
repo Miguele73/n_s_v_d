@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:n_s_v_d/cocktail.dart'; // Import der Cocktail-Klasse
+import 'package:n_s_v_d/cocktail.dart';
 
-/// A widget to display the detailed information of a single cocktail.
-/// Dieses Widget zeigt die detaillierten Informationen eines einzelnen Cocktails an.
 class CocktailDetailsDisplay extends StatelessWidget {
-  /// The cocktail object containing all details to be displayed.
-  /// Das Cocktail-Objekt, das alle anzuzeigenden Details enthält.
   final Cocktail cocktail;
 
-  /// Constructor for CocktailDetailsDisplay.
-  /// Konstruktor für CocktailDetailsDisplay.
   const CocktailDetailsDisplay({super.key, required this.cocktail});
 
   @override
@@ -17,21 +11,17 @@ class CocktailDetailsDisplay extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // Cocktail name
         Text(
           cocktail.name,
           style: const TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
             color: Colors.deepOrangeAccent,
-            decoration: TextDecoration.underline,
-            decorationColor: Colors.deepOrangeAccent,
-            decorationThickness: 2,
           ),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 16),
-        // Cocktail image
+
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
           child: Image.network(
@@ -57,7 +47,7 @@ class CocktailDetailsDisplay extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        // Glass type
+
         Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
@@ -70,7 +60,7 @@ class CocktailDetailsDisplay extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        // Ingredients
+
         Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
@@ -84,7 +74,7 @@ class CocktailDetailsDisplay extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        // Instructions
+
         Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
